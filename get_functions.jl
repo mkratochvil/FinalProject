@@ -83,6 +83,22 @@ function get_branch_interval(model::JuMP.Model, branch::String, timestep::Int64)
     return JuMP.constraint_by_name(model, string("Bint_{",branch,",",string(timestep),"}"))
 end
 
+function get_ER_lb(model::JuMP.Model, bus::Int64)
+    
+    return JuMP.constraint_by_name(model, "ER_lb_{$(bus)}")  
+end
+
+function get_ER_ub(model::JuMP.Model, bus::Int64)
+    
+    return JuMP.constraint_by_name(model, "ER_ub_{$(bus)}")  
+end
+
+function get_PR_lb(model::JuMP.Model, bus::Int64)
+    
+    return JuMP.constraint_by_name(model, "PR_lb_{$(bus)}")  
+end
+
+
 # Variables
 
 function get_line_variable(model::JuMP.Model, branch::String, timestep::Int64)
