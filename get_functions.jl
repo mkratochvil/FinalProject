@@ -52,6 +52,12 @@ function get_overload_lb(model::JuMP.Model, bus::Int64, timestep::Int64)
     return JuMP.constraint_by_name(model, string("Olb_{",string(bus),",",string(timestep),"}"))
 end
 
+# note this may have to change if we add wind expansion
+function get_wind_ub(model::JuMP.Model, bus::Int64, timestep::Int64)
+    
+    return JuMP.constraint_by_name(model, string("Wub_{",string(bus),",",string(timestep),"}"))
+end
+
 #Note this indexes from  2:24, since there is no ramping at the first timestep
 function get_ramp_ub(model::JuMP.Model, gen::String, timestep::Int64)
     
@@ -83,16 +89,19 @@ function get_branch_interval(model::JuMP.Model, branch::String, timestep::Int64)
     return JuMP.constraint_by_name(model, string("Bint_{",branch,",",string(timestep),"}"))
 end
 
+#1st stage constraint
 function get_ER_lb(model::JuMP.Model, bus::Int64)
     
     return JuMP.constraint_by_name(model, "ER_lb_{$(bus)}")  
 end
 
+#1st stage constraints
 function get_ER_ub(model::JuMP.Model, bus::Int64)
     
     return JuMP.constraint_by_name(model, "ER_ub_{$(bus)}")  
 end
 
+#1st stage constraints 
 function get_PR_lb(model::JuMP.Model, bus::Int64)
     
     return JuMP.constraint_by_name(model, "PR_lb_{$(bus)}")  
@@ -145,4 +154,14 @@ end
 function get_wind_variable(model::JuMP.Model, bus::Int64, timestep::Int64)
     
     return JuMP.variable_by_name(model, string("Pre_{",bus,"_WIND_1,",timestep,"}"))
+end
+
+function get_PR_variable(model::JuMP.Model, bus::Int64)
+    
+    return JuMP.variable_by_name(model, "PR_{$(bus)}")
+end
+
+function get_ER_variable(model::JuMP.Model, bus::Int64)
+    
+    return JuMP.variable_by_name(model, "ER_{$(bus)}")
 end
