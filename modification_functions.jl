@@ -209,22 +209,30 @@ end
 
 
 # change ptdf constraint (remember to run load changes FIRST)
-function adjust_ptdf_constraint!(exmodel::JuMP.Model, submodel::JuMP.Model, ptdfdict)
+function adjust_ptdf_constraint!(exmodel::JuMP.Model, submodel::JuMP.Model, ptdfdict, loadvec, loaddis)
     for ts in timesteps
         for br in branches
             ptdfcon = get_ptdf_con(submodel,br,ts)
 
             valold = JuMP.constraint_object(ptdfcon).set.value
             valnew = 0.0
+            
+            for bus in buses
+                lf = loaddis[bus]
+                lval = loadvec[ts]
+                valnew -= ptdfdict[br][bus]*lf*lval
+            end
+            #=
             for bus in buses
                 buscon = get_load_balance(submodel,bus,ts)
 
-                loadcon = copy(JuMP.constraint_object(buscon).func)
+                #loadcon = copy(JuMP.constraint_object(buscon).func)
                 loadval = copy(JuMP.constraint_object(buscon).set.value)
 
                 valnew -= ptdfdict[br][bus]*loadval
 
             end 
+            =#
 
             JuMP.set_normalized_rhs(ptdfcon, valnew)
             #println("$(JuMP.name(ptdfcon)), $(valold), $(valnew)")
@@ -1097,8 +1105,11 @@ function construct_ef_model(exmodel, submodel, load, wind, nscen)
         windvec = wind[scen]
         
         println("......Adjusting uncertainty...")
+        println(".........load balance...")
         adjust_load_balance_constraint!(submodel, loadvec, loaddis)  
-        adjust_ptdf_constraint!(exmodel, submodel, ptdfdict) 
+        println(".........ptdf...")
+        adjust_ptdf_constraint!(exmodel, submodel, ptdfdict, loadvec, loaddis) 
+        println(".........wind upper bound...")
         adjust_wind_ub!(submodel, windvec)
         
         println("......Adding variables...")
