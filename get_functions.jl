@@ -178,6 +178,46 @@ function get_branch_interval(model::JuMP.Model, branch::String, timestep::Int64,
     return JuMP.constraint_by_name(model, string("Bint_{",branch,",",string(timestep),"}_", scenario))
 end
 
+function get_thermal_lb(model::JuMP.Model, gen::String, timestep::Int64)
+    
+    return JuMP.constraint_by_name(model, string("Tlb_{", gen,",",string(timestep),"}"))
+end
+
+function get_thermal_lb(model::JuMP.Model, gen::String, timestep::Int64, scenario::Int64)
+    
+    return JuMP.constraint_by_name(model, string("Tlb_{", gen,",",string(timestep),"}_", string(scenario)))
+end
+
+function get_thermal_ub(model::JuMP.Model, gen::String, timestep::Int64)
+    
+    return JuMP.constraint_by_name(model, string("Tub_{", gen,",",string(timestep),"}"))
+end
+
+function get_thermal_ub(model::JuMP.Model, gen::String, timestep::Int64, scenario::Int64)
+    
+    return JuMP.constraint_by_name(model, string("Tub_{", gen,",",string(timestep),"}_", string(scenario)))
+end
+
+function get_branch_lb(model::JuMP.Model, branch::String, timestep::Int64)
+    
+    return JuMP.constraint_by_name(model, string("Blb_{", branch,",",string(timestep),"}"))
+end
+
+function get_branch_lb(model::JuMP.Model, branch::String, timestep::Int64, scenario::Int64)
+    
+    return JuMP.constraint_by_name(model, string("Blb_{", branch,",",string(timestep),"}_", string(scenario)))
+end
+
+function get_branch_ub(model::JuMP.Model, branch::String, timestep::Int64)
+    
+    return JuMP.constraint_by_name(model, string("Bub_{", branch,",",string(timestep),"}"))
+end
+
+function get_branch_ub(model::JuMP.Model, branch::String, timestep::Int64, scenario::Int64)
+    
+    return JuMP.constraint_by_name(model, string("Bub_{", branch,",",string(timestep),"}_", string(scenario)))
+end
+
 #1st stage constraint
 function get_ER_lb(model::JuMP.Model, bus::Int64)
     
@@ -187,7 +227,7 @@ end
 #1st stage constraint
 function get_ER_lb(model::JuMP.Model, bus::Int64, scenario::Int64)
     
-    return JuMP.constraint_by_name(model, "ER_lb_{$(bus)}_", scenario)  
+    return JuMP.constraint_by_name(model, "ER_lb_{$(bus)}_$(scenario)")
 end
 
 #1st stage constraints
@@ -199,7 +239,7 @@ end
 #1st stage constraints
 function get_ER_ub(model::JuMP.Model, bus::Int64, scenario::Int64)
     
-    return JuMP.constraint_by_name(model, "ER_ub_{$(bus)}_", scenario)  
+    return JuMP.constraint_by_name(model, "ER_ub_{$(bus)}_$(scenario)")  
 end
 
 #1st stage constraints 
@@ -211,7 +251,17 @@ end
 #1st stage constraints 
 function get_PR_lb(model::JuMP.Model, bus::Int64, scenario::Int64)
     
-    return JuMP.constraint_by_name(model, "PR_lb_{$(bus)}_", scenario)  
+    return JuMP.constraint_by_name(model, "PR_lb_{$(bus)}_$(scenario)")  
+end
+
+function get_PR_ub(model::JuMP.Model, bus::Int64)
+    
+    return JuMP.constraint_by_name(model, "PR_ub_{$(bus)}")
+end
+
+function get_PR_ub(model::JuMP.Model, bus::Int64, scenario::Int64)
+    
+    return JuMP.constraint_by_name(model, "PR_ub_{$(bus)}_$(scenario)")
 end
 
 
@@ -316,7 +366,7 @@ end
 
 function get_PR_variable(model::JuMP.Model, bus::Int64, scenario::Int64)
     
-    return JuMP.variable_by_name(model, "PR_{$(bus)}_", scenario)
+    return JuMP.variable_by_name(model, "PR_{$(bus)}_$(scenario)")
 end
 
 function get_ER_variable(model::JuMP.Model, bus::Int64)
@@ -326,5 +376,15 @@ end
 
 function get_ER_variable(model::JuMP.Model, bus::Int64, scenario::Int64)
     
-    return JuMP.variable_by_name(model, "ER_{$(bus)}_", scenario)
+    return JuMP.variable_by_name(model, "ER_{$(bus)}_$(scenario)")
+end
+
+function get_expansion_budget(model::JuMP.Model)
+    
+    return JuMP.constraint_by_name(model, "expansion_budget")
+end
+
+function get_expansion_budget(model::JuMP.Model, scenario::Int64)
+    
+    return JuMP.constraint_by_name(model, "expansion_budget_$(scenario)")
 end
