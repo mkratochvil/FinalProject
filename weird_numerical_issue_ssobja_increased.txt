@@ -1,0 +1,123 @@
+-0.0027556023434177055
+68 1093.6392765887351 1093.9818183044142 2 0.4
+69 1207.989688028578 1093.6392765887351 0.10455953245983694
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+-0.006158723986317154
+69 1093.6392765887351 1094.3392184617128 0 0.8
+70 1166.7718413034404 1094.3392184617128 0.06618845566326119
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+-0.020202291612141484
+70 1094.3392184617128 1095.7735467129937 3 1.6
+71 1139.1796679004485 1094.3392184617128 0.04097490858617204
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+Academic license - for non-commercial use only - expires 2022-08-19
+ERROR: LoadError: LoadError: InterruptException:
+Stacktrace:
+  [1] make_typealias(x::Type)
+    @ Base .\show.jl:542
+  [2] show_typealias(io::IOBuffer, x::Type)
+    @ Base .\show.jl:661
+  [3] show(io::IOBuffer, x::Type)
+    @ Base .\show.jl:816
+  [4] print(io::IOBuffer, x::Type)
+    @ Base .\strings\io.jl:35
+  [5] print_to_string(xs::Type)
+    @ Base .\strings\io.jl:135
+  [6] string
+    @ .\strings\io.jl:174 [inlined]
+  [7] IdxToCon(m::Model)
+    @ LShaped C:\Users\micha\repos\LShaped.jl\src\setup.jl:97
+  [8] top-level scope
+    @ C:\Users\micha\repos\LShaped.jl\async\secondstage_regdec10.jl:52
+  [9] include
+    @ .\client.jl:444 [inlined]
+ [10] top-level scope
+    @ C:\Users\micha\repos\LShaped.jl\async\juliatestloop_trust.jl:26
+ [11] include(fname::String)
+    @ Base.MainInclude .\client.jl:444
+ [12] top-level scope
+    @ REPL[3]:1
+in expression starting at C:\Users\micha\repos\LShaped.jl\async\secondstage_regdec10.jl:26
+in expression starting at C:\Users\micha\repos\LShaped.jl\async\juliatestloop_trust.jl:12
+
+julia>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
