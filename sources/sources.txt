@@ -1,0 +1,41 @@
+Scenario Optimization
+1 + Birge and Louveaux
+2 - (maybe remove...?)
+	L-Shaped Method
+3	+ Original Paper
+4	+ Trust Region Biel Julia
+5	- (I forget why I wanted 3)
+	Use of Clusters
+6	- Look at R3 Papers
+7	- Lok at R3 Papers
+Robust Optimization
+8- (check Wright Nocedal)
+9- (use something for use of data driven approach...see yan et al)
+	C&CG
+10	+ First use according to Yan et al.
+11	- Possibly Yan et al itself
+	Use of Clusters**
+12	- This is where the real research begins
+13	- This is where the real research begins
+Storage Expansion
+14- Read Intros
+	Growing Use, thereof
+15	- Read Intros
+Uncertainty in power grids
+- Read Intros
+	Growing use, thereof
+16	- Read Intros
+ERCOT Data Set
+17- (cite as a reference in the bottom? or look at other literature on citing websites...)
+RTS-GMLC Data Set
+18+
+RTS-96 Data Set
+19+
+ERCOT VOLL
+20+
+PTDF Info
+21+ See old paper perhaps
+Expansion Cost Explanation
+22+ Xiong and Singh
+CAES Relaxation
+23= See Xiong and Singh (22) (just use (22) for describing the cost
