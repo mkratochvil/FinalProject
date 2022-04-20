@@ -1,12 +1,12 @@
 # load in helper functions
-include("./parameters.jl")
-include("./get_functions.jl")
+#include("./parameters.jl")
+#include("./get_functions.jl")
 
 # load distribution factors for RTS-GMLC Data Set csv file
-loadcsv = CSV.File("./LOAD.csv");
+#loadcsv = CSV.File("../RTS_data_summary/LOAD.csv");
 
 # ptdf matrix (calculated elsewhere) for Zone A of RTS-GMLC Data Set.
-ptdfdf = DataFrame(CSV.File("./ptdfsmall.csv"));
+#ptdfdf = DataFrame(CSV.File("../RTS_data_summary/ptdfsmall.csv"));
 
 
 function load_distribution_dict(loadcsv; size="small")
